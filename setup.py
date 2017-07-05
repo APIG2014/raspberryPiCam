@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 from setuptools import setup
 
@@ -6,7 +7,9 @@ from setuptools import setup
 # README file and 2) it's easier to type in the README file than to put a raw
 # string in below ...
 
-REQUIREMENTS = ['Pyro4==4.23', 'docopt']
+REQUIREMENTS = ['Pyro4==4.23', 'docopt', 'setuptools']
+
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
@@ -20,7 +23,7 @@ setup(
     keywords = "",
     url = "http://packages.python.org/an_example_pypi_project",
     packages=['raspberry_pi_cam'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
