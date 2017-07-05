@@ -14,7 +14,7 @@ class Thingy(object):
         print("adding {1} to {0}, no delay".format(value,increase))
         return value+increase
 
-d=Pyro4.Daemon()
+d=Pyro4.Daemon(host="192.168.1.143", port = 8000)
 uri=d.register(Thingy(), "example.async")
 print("server object uri:",uri)
 print("async server running.")

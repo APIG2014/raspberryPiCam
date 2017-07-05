@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="263ab124-549e-4997-8929-5440b28c69ba" name="Default" comment="initial test with client and server communication 2017-07-05">
+    <list default="true" id="263ab124-549e-4997-8929-5440b28c69ba" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraclient.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraclient.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraserver.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraserver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="remotecameraserver.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="remotecameraserver.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+            <state relative-caret-position="272">
+              <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -41,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="remotecameraclient.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="remotecameraclient.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraclient.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -322,13 +320,21 @@
       <option name="project" value="LOCAL" />
       <updated>1499276737251</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="client and server communication on Pyro4 V4.23 2017-07-05">
+      <created>1499281424516</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1499281424516</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -353,7 +359,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial test with client and server communication 2017-07-05" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial test with client and server communication 2017-07-05" />
+    <MESSAGE value="client and server communication on Pyro4 V4.23 2017-07-05" />
+    <option name="LAST_COMMIT_MESSAGE" value="client and server communication on Pyro4 V4.23 2017-07-05" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -497,20 +504,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraserver.py">
+    <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraclient.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="20" column="15" lean-forward="false" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraclient.py">
+    <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remotecameraserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="272">
+          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
