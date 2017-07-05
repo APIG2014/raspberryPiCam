@@ -9,6 +9,7 @@ class Thingy(object):
     @property
     def camera_set_up(self):
         return self.camera_set_up
+
     @camera_set_up.setter
     def camera_set_up(self, value):
         self.camera_set_up = value
@@ -24,8 +25,10 @@ class Thingy(object):
         print("adding {1} to {0}, no delay".format(value,increase))
         return value+increase
 
-d=Pyro4.Daemon(host="192.168.1.143", port = 8000)
-uri=d.register(Thingy(), "example.async")
-print("server object uri:",uri)
-print("async server running.")
-d.requestLoop()
+
+def run_server(host="192.168.1.143", port=8000):
+    d=Pyro4.Daemon(host="192.168.1.143", port = 8000)
+    uri=d.register(Thingy(), "example.async")
+    print("server object uri:",uri)
+    print("async server running.")
+    d.requestLoop()
