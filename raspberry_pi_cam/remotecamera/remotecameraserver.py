@@ -3,6 +3,16 @@ import time
 import Pyro4
 
 class Thingy(object):
+    def __init__(self):
+        self.camera_set_up = False
+
+    @property
+    def camera_set_up(self):
+        return self.camera_set_up
+    @camera_set_up.setter
+    def camera_set_up(self, value):
+        self.camera_set_up = value
+        
     def divide(self, a, b):
         print("dividing {0} by {1} after a slight delay".format(a,b))
         time.sleep(3)
