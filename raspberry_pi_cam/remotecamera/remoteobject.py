@@ -3,9 +3,8 @@ import time
 import cv2
 import time
 import picamera
-from picamera.array import PiRGBArray
-
-
+import io
+import numpy
 
 class RemoteFrame(object):
     def __init__(self):
@@ -27,7 +26,7 @@ class RemoteObject(object):
         #picam stuff
         self.allow_picam = allow_picam
         self.picam = None
-        self.picam_array = None
+        self.picam_stream = None
         if self.allow_picam:
             print("picam allowed for this server")
         
@@ -68,19 +67,32 @@ class RemoteObject(object):
         if self.allow_picam:
             self.picam = picamera.PiCamera()
                         
-            self.picam_array = PiRGBArray(self.picam)
+            self.picam_stream = io.BytesIO() 
           
-            self.picam.capture(self.picam_array, 'rgb')
+            self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
+            # Construct a numpy array from the stream
+            data = numpy.fromstring(self.picam_stream.getvalue(), dtype=np.uint8)
+            # "Decode" the image from the array, preserving colour
+            image = cv2.imdecode(data, 1)
+            #clear buffer
+            self.picam_stream.seek(0)
             rval = True
         else:
             rval = False
+        print ("end of picam_start function")
         return rval
 
     def picam_get_frame(self):
         ret_frame = RemoteFrame()
-        self.picam_array.flush()
-        self.picam.capture(self.picam_array, 'rgb')
-        ret_frame.frame = self.picam_array
+        self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
+        # Construct a numpy array from the stream
+        data = numpy.fromstring(self.picam_stream.getvalue(), dtype=np.uint8)
+        # "Decode" the image from the array, preserving colour
+        image = cv2.imdecode(data, 1)
+        #clear buffer
+        self.picam_stream.seek(0) 
+         
+        ret_frame.frame = image
 
         return ret_frame  
 
