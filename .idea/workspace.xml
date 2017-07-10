@@ -4,10 +4,6 @@
     <list default="true" id="263ab124-549e-4997-8929-5440b28c69ba" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remoteobject.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remoteobject.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/utils.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/remotecamera/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/run_camera_server.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/run_camera_server.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/raspberry_pi_cam/run_one_camera_client.py" afterPath="$PROJECT_DIR$/raspberry_pi_cam/run_one_camera_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,11 +54,11 @@
       <file leaf-file-name="remoteobject.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remoteobject.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-216">
-              <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+            <state relative-caret-position="266">
+              <caret line="77" column="77" lean-forward="false" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
-                <marker date="1499729989677" expanded="true" signature="2807:2833" ph="..." />
+                <marker date="1499730180286" expanded="true" signature="2813:2839" ph="..." />
               </folding>
             </state>
           </provider>
@@ -442,16 +438,24 @@
       <option name="project" value="LOCAL" />
       <updated>1499295679198</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="move the import of picam locally, to try">
+      <created>1499730115249</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1499730115249</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25013477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3282365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3282365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -477,7 +481,8 @@
     <MESSAGE value="updated daemon function inputs 2017-07-05" />
     <MESSAGE value="add script to start the server in a clean way" />
     <MESSAGE value="made the simple one camera client working" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the simple one camera client working" />
+    <MESSAGE value="move the import of picam locally, to try" />
+    <option name="LAST_COMMIT_MESSAGE" value="move the import of picam locally, to try" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -510,7 +515,7 @@
           <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
-            <marker date="1499729989677" expanded="true" signature="2807:2833" ph="..." />
+            <marker date="1499730180286" expanded="true" signature="2813:2839" ph="..." />
           </folding>
         </state>
       </provider>
@@ -895,11 +900,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/raspberry_pi_cam/remotecamera/remoteobject.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        <state relative-caret-position="266">
+          <caret line="77" column="77" lean-forward="false" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
-            <marker date="1499729989677" expanded="true" signature="2807:2833" ph="..." />
+            <marker date="1499730180286" expanded="true" signature="2813:2839" ph="..." />
           </folding>
         </state>
       </provider>

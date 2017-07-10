@@ -75,7 +75,7 @@ class RemoteObject(object):
           
             self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
             # Construct a numpy array from the stream
-            data = numpy.fromstring(self.picam_stream.getvalue(), dtype=np.uint8)
+            data = numpy.fromstring(self.picam_stream.getvalue(), dtype=numpy.uint8)
             # "Decode" the image from the array, preserving colour
             image = cv2.imdecode(data, 1)
             #clear buffer
@@ -90,7 +90,7 @@ class RemoteObject(object):
         ret_frame = RemoteFrame()
         self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
         # Construct a numpy array from the stream
-        data = numpy.fromstring(self.picam_stream.getvalue(), dtype=np.uint8)
+        data = numpy.fromstring(self.picam_stream.getvalue(), dtype=numpy.uint8)
         # "Decode" the image from the array, preserving colour
         image = cv2.imdecode(data, 1)
         #clear buffer
