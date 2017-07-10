@@ -2,7 +2,6 @@ from __future__ import print_function
 import time
 import cv2
 import time
-import picamera
 import io
 import numpy
 
@@ -44,7 +43,11 @@ class RemoteObject(object):
 
     def webcam_start(self):
         if self.allow_webcam:
-            self.webcam = cv2.VideoCapture(0)
+            if self.webcam is None:
+                self.webcam = cv2.VideoCapture(0)
+            else:
+                # we already created the object, let's use it!
+                pass
 
             if self.webcam.isOpened():  # try to get the first frame
                 rval, frame = self.webcam.read()
@@ -65,6 +68,7 @@ class RemoteObject(object):
     #function for starting pi camera
     def picam_start(self):
         if self.allow_picam:
+            import picamera
             self.picam = picamera.PiCamera()
                         
             self.picam_stream = io.BytesIO() 

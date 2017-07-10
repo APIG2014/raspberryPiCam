@@ -8,3 +8,11 @@ def get_my_ip():
     my_ip = s.getsockname()[0]
     s.close()
     return my_ip
+
+
+
+import sys
+def signal_handler_ctrlc(signal, frame):
+    print('You pressed Ctrl+C!')
+    sys.exit(0)
+

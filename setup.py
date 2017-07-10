@@ -7,7 +7,7 @@ from setuptools import setup
 # README file and 2) it's easier to type in the README file than to put a raw
 # string in below ...
 
-REQUIREMENTS = ['Pyro4==4.23', 'docopt', 'setuptools']
+REQUIREMENTS = ['Pyro4==4.23', 'docopt', 'setuptools', 'picamera']
 
 
 def read(fname):
