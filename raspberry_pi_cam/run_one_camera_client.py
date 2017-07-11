@@ -31,6 +31,7 @@ def main():
 
     arguments = docopt(__doc__)
     print arguments
+    
     my_ip = arguments["--IP"]
     my_port = arguments["--port"]
     use_picam = arguments["--use_picam"]
