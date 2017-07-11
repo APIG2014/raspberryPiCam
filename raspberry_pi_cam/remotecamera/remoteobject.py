@@ -12,7 +12,9 @@ class RemoteFrame(object):
 
 
 class RemoteObject(object):
-    def __init__(self, allow_webcam=False, allow_picam=False):
+    def __init__(self, server_name, allow_webcam=False, allow_picam=False):
+        self.server_name=server_name
+
 
         #webcam stuff
         self._allow_webcam = allow_webcam
@@ -34,7 +36,8 @@ class RemoteObject(object):
 
 
 
-
+    def get_server_name(self):
+        return self.server_name
     def allow_webcam(self):
         return self._allow_webcam
     def allow_picam(self):
@@ -69,7 +72,7 @@ class RemoteObject(object):
             return None
     
     #function for starting pi camera
-    def picam_start(self, resolution=(480, 640)):
+    def picam_start(self, resolution=(640, 480)):
         if self._allow_picam:
             import picamera
             if self.picam is None:
@@ -128,7 +131,7 @@ class RemoteObject(object):
 
 
 
-    def camera_start(self, resolution=(480, 640)):
+    def camera_start(self, resolution=(640, 480)):
         if self._allow_picam:
             return self.picam_start(resolution=resolution)
         elif self._allow_webcam:
