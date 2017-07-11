@@ -4,6 +4,7 @@ import cv2
 import time
 import io
 import numpy
+from utils import get_time_micros
 
 class RemoteFrame(object):
     def __init__(self):
@@ -14,6 +15,7 @@ class RemoteFrame(object):
 class RemoteObject(object):
     def __init__(self, server_name, allow_webcam=False, allow_picam=False):
         self.server_name=server_name
+        self.creation_time=get_time_micros()
 
 
         #webcam stuff

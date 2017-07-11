@@ -59,17 +59,17 @@ def main():
     if remote_ip3 is not None:
         multi_camera.add_camera(remote_ip3, remote_port)
 
-
     multi_camera.cameras_start()
+
     while True:
         frames = multi_camera.cameras_get_frame()
-        id=0
+        id = 0
         for frame in frames:
             cv2.imshow("preview" + str(id), frame.frame)
-            id+=1
+            id += 1
 
         key = cv2.waitKey(20)
-        if key == 27: # exit on ESC
+        if key == 27:  # exit on ESC
             break
 
 
