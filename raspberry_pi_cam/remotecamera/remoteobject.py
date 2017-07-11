@@ -36,8 +36,9 @@ class RemoteObject(object):
 
 
 
-    @property
     def allow_webcam(self):
+        return self._allow_webcam
+    def allow_picam(self):
         return self._allow_webcam
 
     def webcam_start(self):

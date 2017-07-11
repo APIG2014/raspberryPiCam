@@ -31,10 +31,11 @@ def main():
 
     arguments = docopt(__doc__)
     print arguments
-    
+
     my_ip = arguments["--IP"]
     my_port = arguments["--port"]
     use_picam = arguments["--use_picam"]
+    use_webcam = arguments["--use_webcam"]
 
     if my_ip is None:
         print "no IP given, going to use interface that can reach 8.8.8.8"
@@ -55,7 +56,10 @@ def main():
     else:
         is_camera_built = remote_camera.webcam_start()
         if is_camera_built is False:
-            print "the server doesn't suport webcam"
+            if remote_camera.allow_webcam is False:
+                print "the server doesn't suport webcam"
+            else:
+                print "the server failed for an unkown reason"
             exit(0)
         else:
             print "the server is up an running with our webcam"
