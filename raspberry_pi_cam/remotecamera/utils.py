@@ -18,6 +18,10 @@ def signal_handler_ctrlc(signal, frame):
 
 
 def get_time_micros():
+    import time
+    return time.time() * 1000000
+
+
     from datetime import datetime, timezone, timedelta
 
     now = datetime.now(timezone.utc)
