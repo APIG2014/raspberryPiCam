@@ -61,7 +61,7 @@ def main():
     signal.signal(signal.SIGINT, signal_handler_ctrlc)
 
     if use_picam:
-        is_camera_built = remote_camera.picam_start()
+        is_camera_built = remote_camera.picam_start(resolution=(480, 640))
         if is_camera_built is False:
             print "the server doesn't suport picam"
             exit(0)
