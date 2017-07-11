@@ -8,13 +8,17 @@ from utils import get_time_micros
 
 class RemoteFrame(object):
     def __init__(self):
-        self.frame = None
+        self._frame = None
         self.start_time = get_time_micros()
         self.end_time = 0
 
+    @property
+    def frame(self):
+        return self._frame
+
     @frame.setter
     def frame(self, value):
-        self.frame = value
+        self._frame = value
         self.end_time = get_time_micros()
 
 
