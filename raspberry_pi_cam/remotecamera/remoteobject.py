@@ -34,6 +34,7 @@ class RemoteObject(object):
 
 
 
+
     def allow_webcam(self):
         return self._allow_webcam
     def allow_picam(self):
