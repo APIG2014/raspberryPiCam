@@ -22,14 +22,6 @@ def get_time_micros():
     return time.time() * 1000000
 
 
-    from datetime import datetime, timezone, timedelta
-
-    now = datetime.now(timezone.utc)
-    epoch = datetime(1970, 1, 1, tzinfo=timezone.utc) # use POSIX epoch
-    posix_timestamp_micros = (now - epoch) // timedelta(microseconds=1)
-
-    return posix_timestamp_micros
-
 def get_time_millis():
     posix_timestamp_micros = get_time_micros()
     posix_timestamp_millis = posix_timestamp_micros // 1000  # or `/ 1e3` for float
