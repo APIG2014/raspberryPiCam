@@ -37,12 +37,24 @@ def main():
     use_picam = arguments["--use_picam"]
     use_webcam = arguments["--use_webcam"]
 
+
+
     if my_ip is None:
         print "no IP given, going to use interface that can reach 8.8.8.8"
         my_ip = get_my_ip()
         print "going to use: %s" % my_ip
 
     remote_camera = get_remote_object(host=my_ip, port=my_port)
+
+    if use_picam is False and use_webcam is False:
+        print "you haven't give any camera to use on the remote server, we will use what the server has"
+        if remote_camera.allow_webcam():
+            use_webcam = True
+            use_picam = False
+        elif remote_camera.allow_picam():
+            use_webcam = False
+            use_picam = True
+
 
     signal.signal(signal.SIGINT, signal_handler_ctrlc)
 
@@ -53,16 +65,19 @@ def main():
             exit(0)
         else:
             print "the server is up an running with our picam"
-    else:
+    elif use_webcam:
         is_camera_built = remote_camera.webcam_start()
         if is_camera_built is False:
-            if remote_camera.allow_webcam is False:
+            if remote_camera.allow_webcam() is False:
                 print "the server doesn't suport webcam"
             else:
                 print "the server failed for an unkown reason"
             exit(0)
         else:
             print "the server is up an running with our webcam"
+    else:
+        print "problem here, no camera picked up"
+
 
     while True:
         if use_picam:

@@ -13,8 +13,6 @@ class RemoteFrame(object):
 
 class RemoteObject(object):
     def __init__(self, allow_webcam=False, allow_picam=False):
-        self._camera_set_up = False
-
 
         #webcam stuff
         self._allow_webcam = allow_webcam
@@ -39,7 +37,7 @@ class RemoteObject(object):
     def allow_webcam(self):
         return self._allow_webcam
     def allow_picam(self):
-        return self._allow_webcam
+        return self._allow_picam
 
     def webcam_start(self):
         if self._allow_webcam:
