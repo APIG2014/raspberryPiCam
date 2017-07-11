@@ -102,5 +102,5 @@ ENV/
 
 
 #pycharm
-.idea/
-*/.idea/
+.idea/*
+*/.idea/*
