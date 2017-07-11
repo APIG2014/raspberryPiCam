@@ -17,32 +17,31 @@ class RemoteObject(object):
 
 
         #webcam stuff
-        self.allow_webcam = allow_webcam
+        self._allow_webcam = allow_webcam
         self.webcam = None
-        if self.allow_webcam:
+        if self._allow_webcam is True:
             print("webcam allowed for this server")
 
         #picam stuff
-        self.allow_picam = allow_picam
+        self._allow_picam = allow_picam
         self.picam = None
         self.picam_stream = None
-        if self.allow_picam:
+        if self._allow_picam is True:
             print("picam allowed for this server")
         
             
             
         print("remote object built")
 
-    @property
-    def camera_set_up(self):
-        return self._camera_set_up
 
-    @camera_set_up.setter
-    def camera_set_up(self, value):
-        self._camera_set_up = value
+
+
+    @property
+    def allow_webcam(self):
+        return self._allow_webcam
 
     def webcam_start(self):
-        if self.allow_webcam:
+        if self._allow_webcam:
             if self.webcam is None:
                 self.webcam = cv2.VideoCapture(0)
             else:
@@ -58,21 +57,27 @@ class RemoteObject(object):
         return rval
  
     def webcam_get_frame(self):
-        ret_frame = RemoteFrame()
-        rval, frame = self.webcam.read()
-        ret_frame.frame = frame
+        if self._allow_webcam:
+            ret_frame = RemoteFrame()
+            rval, frame = self.webcam.read()
+            ret_frame.frame = frame
 
-        return ret_frame
-
+            return ret_frame
+        else:
+            # this server doesn't allow webcam
+            return None
     
     #function for starting pi camera
     def picam_start(self):
-        if self.allow_picam:
+        if self._allow_picam:
             import picamera
-            self.picam = picamera.PiCamera()
-                        
-            self.picam_stream = io.BytesIO() 
-          
+            if self.picam is None:
+                self.picam = picamera.PiCamera()
+                self.picam_stream = io.BytesIO()
+            else:
+                # we already have a picam open, use that one
+                pass
+
             self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
             # Construct a numpy array from the stream
             data = numpy.fromstring(self.picam_stream.getvalue(), dtype=numpy.uint8)
@@ -87,18 +92,22 @@ class RemoteObject(object):
         return rval
 
     def picam_get_frame(self):
-        ret_frame = RemoteFrame()
-        self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
-        # Construct a numpy array from the stream
-        data = numpy.fromstring(self.picam_stream.getvalue(), dtype=numpy.uint8)
-        # "Decode" the image from the array, preserving colour
-        image = cv2.imdecode(data, 1)
-        #clear buffer
-        self.picam_stream.seek(0) 
-         
-        ret_frame.frame = image
+        if self._allow_picam:
+            ret_frame = RemoteFrame()
+            self.picam.capture(self.picam_stream, format='jpeg', use_video_port=True)
+            # Construct a numpy array from the stream
+            data = numpy.fromstring(self.picam_stream.getvalue(), dtype=numpy.uint8)
+            # "Decode" the image from the array, preserving colour
+            image = cv2.imdecode(data, 1)
+            #clear buffer
+            self.picam_stream.seek(0)
 
-        return ret_frame  
+            ret_frame.frame = image
+
+            return ret_frame
+        else:
+            # this server doesn't allow the picam
+            return None
 
 
     def divide(self, a, b):

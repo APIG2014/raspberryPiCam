@@ -30,9 +30,9 @@ def main():
     my_ip = arguments["--IP"]
     my_port = int(arguments["--port"])
     allow_webcam = arguments["--allow_webcam"]
-    allow_webcam = True
+    #allow_webcam = True
     allow_picam = arguments["--allow_picam"]
-    allow_picam = False
+    #allow_picam = False
 
     if my_ip is None:
         print "no IP given, going to use interface that can reach 8.8.8.8"

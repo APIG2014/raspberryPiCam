@@ -5,13 +5,14 @@ starts the daemon to give remote acces to the raspery pi ressources.
 
 
 Usage:
-    run_camera_server.py [--port=<port>] [--IP=<IP>] [--use_picam]
+    run_camera_server.py [--port=<port>] [--IP=<IP>] [--use_picam|--use_webcam]
 
 Options:
     -h --help           show this screen.
     --port=<port>       port used to connect [default: 8000].
     --IP=<IP>           IP used by the daemon. default, will use interface that can reach 8.8.8.8
     --use_picam         use the picamera
+    --use_webcam         use the webcam
 
 
 """
@@ -29,7 +30,7 @@ import signal
 def main():
 
     arguments = docopt(__doc__)
-
+    print arguments
     my_ip = arguments["--IP"]
     my_port = arguments["--port"]
     use_picam = arguments["--use_picam"]
@@ -44,9 +45,19 @@ def main():
     signal.signal(signal.SIGINT, signal_handler_ctrlc)
 
     if use_picam:
-        remote_camera.picam_start()
+        is_camera_built = remote_camera.picam_start()
+        if is_camera_built is False:
+            print "the server doesn't suport picam"
+            exit(0)
+        else:
+            print "the server is up an running with our picam"
     else:
-        remote_camera.webcam_start()
+        is_camera_built = remote_camera.webcam_start()
+        if is_camera_built is False:
+            print "the server doesn't suport webcam"
+            exit(0)
+        else:
+            print "the server is up an running with our webcam"
 
     while True:
         if use_picam:
