@@ -48,13 +48,15 @@ def main():
 
     if use_picam is False and use_webcam is False:
         print "you haven't give any camera to use on the remote server, we will use what the server has"
-        if remote_camera.allow_webcam():
+        if remote_camera.allow_webcam() is True:
             use_webcam = True
             use_picam = False
-        elif remote_camera.allow_picam():
+        elif remote_camera.allow_picam() is True:
             use_webcam = False
             use_picam = True
-
+        else:
+            print "remote_camera.allow_webcam():", remote_camera.allow_webcam()
+            print "remote_camera.allow_picam():", remote_camera.allow_picam()
 
     signal.signal(signal.SIGINT, signal_handler_ctrlc)
 

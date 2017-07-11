@@ -68,11 +68,12 @@ class RemoteObject(object):
             return None
     
     #function for starting pi camera
-    def picam_start(self):
+    def picam_start(self, resolution=(128, 128)):
         if self._allow_picam:
             import picamera
             if self.picam is None:
                 self.picam = picamera.PiCamera()
+                self.picam.resolution = resolution
                 self.picam_stream = io.BytesIO()
             else:
                 # we already have a picam open, use that one
