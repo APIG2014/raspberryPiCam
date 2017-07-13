@@ -48,7 +48,7 @@ def main():
 
 
 
-    multi_camera = MultiCameraClient()
+    multi_camera = MultiCameraClient(use_async=False)
 
     if remote_ip0 is not None:
         multi_camera.add_camera(remote_ip0, remote_port)
