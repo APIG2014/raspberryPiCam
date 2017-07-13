@@ -5,7 +5,7 @@ starts the daemon to give remote acces to the raspery pi ressources.
 
 
 Usage:
-    run_camera_server.py [--IP0=<IP>] [--IP1=<IP>] [--IP2=<IP>] [--IP3=<IP>]
+    run_camera_server.py [--IP0=<IP>] [--IP1=<IP>] [--IP2=<IP>] [--IP3=<IP>] [--run-async]
 
 Options:
     -h --help           show this screen.
@@ -13,7 +13,7 @@ Options:
     --IP1=<IP>           IP used by the daemon. default, no use of this remote camera
     --IP2=<IP>           IP used by the daemon. default, no use of this remote camera
     --IP3=<IP>           IP used by the daemon. default, no use of this remote camera
-
+    --run-async          runing using async call to the remote cameras
 
 
 """
@@ -37,6 +37,7 @@ def main():
     remote_ip2 = arguments["--IP2"]
     remote_ip3 = arguments["--IP3"]
     remote_port = 8000
+    use_async = arguments["--run-async"]
 
 
 
@@ -48,7 +49,7 @@ def main():
 
 
 
-    multi_camera = MultiCameraClient(use_async=False)
+    multi_camera = MultiCameraClient(use_async=use_async)
 
     if remote_ip0 is not None:
         multi_camera.add_camera(remote_ip0, remote_port)
@@ -61,6 +62,8 @@ def main():
 
     multi_camera.cameras_start()
 
+    multi_camera.camera_get_frame_async()
+
     while True:
         frames = multi_camera.cameras_get_frame()
         id = 0
@@ -71,6 +74,7 @@ def main():
         key = cv2.waitKey(20)
         if key == 27:  # exit on ESC
             break
+        multi_camera.camera_get_frame_async()
 
 
 

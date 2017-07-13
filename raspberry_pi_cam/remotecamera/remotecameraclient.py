@@ -25,6 +25,8 @@ class MultiCameraClient(object):
         self.IPs = []
         self.remote_cameras = []
         self.use_async = use_async
+        self.async_called = False
+        self.async_frames = []
 
     def add_camera(self, IP, port):
         self.IPs.append(IP+str(port))
@@ -51,16 +53,18 @@ class MultiCameraClient(object):
         return return_val
 
     def cameras_get_frame(self):
+
+
         ret_frame = []
 
         if self.use_async:
-            async_frames=[]
 
-            for camera in self.remote_cameras:
-                async_frames.append( camera.camera_get_frame())
+            if self.async_called is False:
+                self.camera_get_frame_async()
 
-            for async_frame in async_frames:
+            for async_frame in self.async_frames:
                 ret_frame.append(async_frame.value)
+            self.async_called = False
 
         else:
             for camera in self.remote_cameras:
@@ -68,6 +72,13 @@ class MultiCameraClient(object):
 
 
 
-
-
         return ret_frame
+
+
+    def camera_get_frame_async(self):
+        if self.use_async is True:
+            del self.async_frames[:]
+
+            for camera in self.remote_cameras:
+                self.async_frames.append(camera.camera_get_frame())
+            self.async_called = True
